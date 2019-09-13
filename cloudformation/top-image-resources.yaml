@@ -9,7 +9,7 @@ Resources:
       Runtime: nodejs8.10
       CodeUri: 's3://vixay-lambdas/top-reddit-image.zip'
       MemorySize: 128
-      Role: arn:aws:iam::505402633935:role/service-role/top-reddit-image-role-1h55vruf
+      Role: arn:aws:iam::505402633935:role/top-reddit-image
       Events:
         TopRedditImage1Hour:
           Type: Schedule

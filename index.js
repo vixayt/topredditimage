@@ -29,14 +29,15 @@ function put_from_url(url, bucket, key, callback) {
     },
     function(err, res, body) {
       if (err) return callback(err, res);
-      console.log(bucket, key);
+      var base64data = new Buffer.from(body, 'binary');
+      console.log('Uploading image to s3 bucket');
       s3.putObject(
         {
           Bucket: bucket,
           Key: key,
           ContentType: res.headers['content-type'],
           ContentLength: res.headers['content-length'],
-          Body: body
+          Body: base64data
         },
         callback
       );
