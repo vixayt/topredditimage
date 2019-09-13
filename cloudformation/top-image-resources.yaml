@@ -9,12 +9,13 @@ Resources:
       Runtime: nodejs8.10
       CodeUri: 's3://vixay-lambdas/top-reddit-image.zip'
       MemorySize: 128
+      Timeout: 5
       Role: arn:aws:iam::505402633935:role/top-reddit-image
       Events:
         TopRedditImage1Hour:
           Type: Schedule
           Properties:
-            Schedule: rate(1 hour)
-            Name: top-reddit-image-1-hour
-            Description: Should trigger the lambda every hour to get the top image
+            Schedule: rate(4 hour)
+            Name: top-reddit-image-every-4-hours
+            Description: Should trigger the lambda every 4 hours to get the top image
             Enabled: True
