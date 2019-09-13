@@ -15,9 +15,12 @@ exports.handler = function(event, context) {
     obj = JSON.parse(JSON.stringify(res));
     jsonData = JSON.parse(obj.body);
     image = JSON.parse(JSON.stringify(jsonData.data.children[0].data.url));
-    console.log(image);
     put_from_url(image, bucketName, fileName, function(err, res) {
-      console.log(image + ' uploaded successfully');
+      if (err) {
+        console.log('ERROR: ', err);
+      } else {
+        console.log(image + ' uploaded successfully');
+      }
     });
   });
 };
