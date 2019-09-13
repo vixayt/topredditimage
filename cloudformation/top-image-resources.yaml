@@ -1,0 +1,20 @@
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  TopRedditImageLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: top-reddit-image
+      Description: 'Lambda will call reddit to get the top image every hour and put it in the vixay.com s3 background_image '
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: 's3://vixay-lambdas/top-reddit-image.zip'
+      MemorySize: 128
+      Role: arn:aws:iam::505402633935:role/service-role/top-reddit-image-role-1h55vruf
+      Events:
+        TopRedditImage1Hour:
+          Type: Schedule
+          Properties:
+            Schedule: rate(1 hour)
+            Name: top-reddit-image-1-hour
+            Description: Should trigger the lambda every hour to get the top image
+            Enabled: True
