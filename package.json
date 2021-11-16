@@ -9,7 +9,7 @@
   "author": "Theodore Vixay",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": ">= 2.0.9",
+    "aws-sdk": ">= 2.814.0",
     "request": "^2.88.0"
   }
 }
